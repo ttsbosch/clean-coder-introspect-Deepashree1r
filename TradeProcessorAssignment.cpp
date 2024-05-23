@@ -1,8 +1,8 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <vector>
 #include <string>
-#include <sstream>
-#include <fstream>
 
 struct TradeRecord {
     std::string sourceCurrency;
@@ -56,7 +56,6 @@ public:
     }
 };
 
-
 class XMLGenerator {
 public:
     std::string generateXML(const std::vector<TradeRecord>& trades) {
@@ -91,3 +90,16 @@ public:
         std::cout << "INFO: " << trades.size() << " trades processed" << std::endl;
     }
 };
+
+int main() {
+    TradeProcessor processor;
+    std::ifstream inputFile("trades.txt");
+    if (inputFile.is_open()) {
+        processor.processTrades(inputFile);
+        inputFile.close();
+    } else {
+        std::cerr << "Error opening input file!" << std::endl;
+        return 1;
+    }
+    return 0;
+}
