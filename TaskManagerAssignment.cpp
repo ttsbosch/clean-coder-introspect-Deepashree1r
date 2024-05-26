@@ -3,64 +3,64 @@
 #include <string>
 using namespace std;
 
-class Device
-{
-    public:
-        int serialNumber;
-        string modelname;
-};
+// class Device
+// {
+//     public:
+//         int serialNumber;
+//         string modelname;
+// };
 
-class Printer : public virtual Device{
+// class Printer : public virtual Device{
 
-    public:
-     void print(string path){
-        cout<<"Printing ....."<<path;
-    }
-};
+//     public:
+//      void print(string path){
+//         cout<<"Printing ....."<<path;
+//     }
+// };
 
-class Scanner : public virtual Device{
+// class Scanner : public virtual Device{
 
-    public:
-     void scan(string path){
-        cout<<"Scanning ....."<<path;
-    }
-};
+//     public:
+//      void scan(string path){
+//         cout<<"Scanning ....."<<path;
+//     }
+// };
 
-class PrintScanner : public Printer, public Scanner {
+// class PrintScanner : public Printer, public Scanner {
 
-public:
+// public:
 
-    Printer printer;
-    Scanner scanner;
+//     Printer printer;
+//     Scanner scanner;
 
  
-    void print(string path){
-        printer.print(path);
-    }
+//     void print(string path){
+//         printer.print(path);
+//     }
  
-    void scan(string path){
-        scanner.scan(path);
-    }
+//     void scan(string path){
+//         scanner.scan(path);
+//     }
     
-};
-class TaskManager{
-    public:
-     static void execuctePrintTask(Printer *printer,string documentPath){
-        printer->print(documentPath);
-    }
-     static void execucteScanTask(Scanner *scanner,string documentPath){
-            scanner->scan(documentPath);
-    }
-};
+// };
+// class TaskManager{
+//     public:
+//      static void execuctePrintTask(Printer *printer,string documentPath){
+//         printer->print(documentPath);
+//     }
+//      static void execucteScanTask(Scanner *scanner,string documentPath){
+//             scanner->scan(documentPath);
+//     }
+// };
 
 
-    int main(){
-        Printer printerObj;
-        Scanner scannerObj;
-        PrintScanner printScannerObj;
+//     int main(){
+//         Printer printerObj;
+//         Scanner scannerObj;
+//         PrintScanner printScannerObj;
 
-        TaskManager::execuctePrintTask(&printerObj,"Test.doc");
-        TaskManager::execucteScanTask(&scannerObj,"MyImage.png");
-        TaskManager::execuctePrintTask(&printScannerObj,"NewDoc.doc");
-        TaskManager::execucteScanTask(&printScannerObj,"YourImage.png");
-    }
+//         TaskManager::execuctePrintTask(&printerObj,"Test.doc");
+//         TaskManager::execucteScanTask(&scannerObj,"MyImage.png");
+//         TaskManager::execuctePrintTask(&printScannerObj,"NewDoc.doc");
+//         TaskManager::execucteScanTask(&printScannerObj,"YourImage.png");
+//     }
